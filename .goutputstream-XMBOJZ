@@ -104,4 +104,4 @@ venv.bak/
 .mypy_cache/
 
 # Yannis
-preprocessed_data/**
+preprocessed_data/
