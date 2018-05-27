@@ -27,9 +27,8 @@ def preprocess_and_save_images(datapath):
 		elif datapath == TEST_PATH:
 			datasplit = 'test'
 		# Save original upright image			
-		cv2.imwrite('./preprocessed_data/{}/image_{}_0.png'.format(datasplit,i), resize_image)
 		# Loop to rotate and save each image for each degree rotated
-		for degree in range(1,180):
+		for degree in range(-90,90):
 			rows, cols = resize_image.shape
 			M = cv2.getRotationMatrix2D((cols/2,rows/2), degree,1)
 			dst = cv2.warpAffine(resize_image,M,(cols,rows))
@@ -39,7 +38,7 @@ def preprocess_and_save_images(datapath):
 			# cv2.destroyAllWindows()
 			# print("ST")
 
-preprocess_and_save_images(TRAIN_PATH)
+preprocess_and_save_images(TEST_PATH)
 
 
 #cv2.imshow("Image", resize_image)
